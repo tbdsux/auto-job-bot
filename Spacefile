@@ -5,3 +5,14 @@ micros:
     src: .
     engine: python3.9
     primary: true
+    presets:
+      env:
+        - name: WEBHOOK
+          description: Your discord channel's webhook url.
+
+    actions:
+      - trigger: "schedule"
+        id: "scrape"
+        description: "Scrape job posts and send to Discord webhook"
+        name: "Scrape job posts"
+        default_interval: "1 hour" # scrape every 1 hour
