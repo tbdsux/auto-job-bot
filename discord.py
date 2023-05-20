@@ -31,10 +31,7 @@ Date: {now.strftime("%B %d, %Y | %I:%M %p")}
         embeds.append(em)
 
     if len(embeds) == 0:
-        content += """
-
-No new jobs
-        """
+        return None
 
     return {"content": content, "embeds": embeds, "attachments": []}
 
@@ -45,6 +42,8 @@ def post_to_channel(query: str, location: str, items: List[SearchResult]):
         raise Exception("WEBHOOK env not defined.")
 
     jsonData = create_job_posts(query, location, items)
+    if jsonData is None:
+        return
 
     r = requests.post(webhook, json=jsonData)
     if not r.ok:

@@ -1,6 +1,10 @@
 [
   {
-    "query": "web developer",
+    "query": "developer",
     "location": "benguet"
+  },
+  {
+    "query": "developer",
+    "location": "baguio"
   }
 ]
